@@ -1,0 +1,42 @@
+version: "3.3"
+services:
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=perntodo
+      - POSTGRES_USER=postgres
+    ports:
+      - "3001:5432"
+    container_name: todo-database
+    restart: on-failure
+    volumes:
+      - ./server/database.sql:/docker-entrypoint-initdb.d/database.sql
+      - ./volumes/postgres-data:/var/lib/postgresql/data/
+
+  server:
+    build:
+      context: server/
+    image: todo-server
+    depends_on:
+      - db
+    command: ["npm", "start"]
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=perntodo
+    ports:
+      - "3000:3000"
+    container_name: todo-server
+
+  client:
+    build:
+      context: client/
+    image: todo-client
+    ports:
+      - "3003:3000"
+    depends_on:
+      - server
+    container_name: todo-client
