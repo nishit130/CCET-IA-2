@@ -1,11 +1,9 @@
-# pern-todo-app devops-IA
+# pern-todo-app CCET-IA-2
 
 #### Team Members:
 
-- Srinil Khandwala 
+- Nishit Patel 
 - Smeet Nagda  
 - Manan Pandya 
-- Nishit Patel 
-- Ayush Singh 
 
 ## This should create a build
