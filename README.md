@@ -2,8 +2,8 @@
 
 #### Team Members:
 
-- Nishit Patel 
-- Smeet Nagda  
-- Manan Pandya 
-
-## This should create a build
+Name | Rollnumber
+--- | --- 
+ Smeet Nagda | 1911032 
+ Manan Pandya | 1911033 
+ Nishit Patel | 1911037 
